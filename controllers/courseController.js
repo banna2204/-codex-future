@@ -24,6 +24,16 @@ export const getCourse = async (req, res) => {
   }
 };
 
+export const getCourseTitles = async (req, res) => {
+  try {
+    const courses = await Course.find({}, 'title'); 
+    const titles = courses.map(course => course.title);
+    res.json({ titles });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
 export const createCourse = async (req,res) => {
   try {
 
