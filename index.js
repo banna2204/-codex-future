@@ -11,6 +11,7 @@ import feedbackRouter from './route/feedbackRoute.js'
 import addressRouter from './route/addressRoute.js'
 import placedRouter from './route/placedRoute.js'
 import connectDB from './config/db.js'
+import adminRouter from './route/adminroute.js'
 
 const app = express();
 app.use(express.json());
@@ -31,6 +32,7 @@ app.use('/api/course',courseRouter);
 app.use('/api/feedback',feedbackRouter);
 app.use('/api/address',addressRouter);
 app.use('/api/placed',placedRouter);
+app.use('/api/admin',adminRouter);
 
 app.listen(PORT,()=>{
   console.log('server on port',PORT);
