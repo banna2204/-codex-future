@@ -33,8 +33,8 @@ app.use('/api/address',addressRouter);
 app.use('/api/placed',placedRouter);
 app.use('/api/admin',adminRouter);
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "build", "index.html"));
+app.get(/(.*)/, (req, res) => {
+  res.sendFile(path.resolve(__dirname, "build", "index.html"));
 });
 
 app.listen(PORT,()=>{
