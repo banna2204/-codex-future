@@ -1,7 +1,6 @@
 import dns from "node:dns/promises";
 dns.setServers(["1.1.1.1", "8.8.8.8"]); 
 
-
 import express from 'express';
 import cors from 'cors';
 import 'dotenv/config'
@@ -33,6 +32,10 @@ app.use('/api/feedback',feedbackRouter);
 app.use('/api/address',addressRouter);
 app.use('/api/placed',placedRouter);
 app.use('/api/admin',adminRouter);
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "build", "index.html"));
+});
 
 app.listen(PORT,()=>{
   console.log('server on port',PORT);

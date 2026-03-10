@@ -10,6 +10,6 @@ export const admin = (req,res) => {
       return res.json({message:true});
     }    
   } catch (error) {
-    res.json({message:"Not Authenticate"});
+    res.json({message:"Something went wrong!!"});
   }
 }
