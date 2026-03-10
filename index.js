@@ -34,7 +34,7 @@ app.use('/api/address',addressRouter);
 app.use('/api/placed',placedRouter);
 app.use('/api/admin',adminRouter);
 
-app.use(express.static(path.join(process.cwd(), "build")));
+app.use(express.static(path.join(process.cwd(), "../admin/dist")));
 
 app.get(/(.*)/, (req, res) => {
   res.sendFile(path.join(process.cwd(), "build", "index.html"));
